@@ -15,7 +15,7 @@ namespace iaQTable
         public Form1()
         {
             InitializeComponent();
-            Sigma sigma = new Sigma(600, 0.25, 1, 100, 10, 1000, target, sigmaPanel, lblPoints);
+            Sigma sigma = new Sigma(600, 0.25, 1, 100, 1, 500, target, sigmaImg, lblPoints);
 
             sigma.Simulate();
         }

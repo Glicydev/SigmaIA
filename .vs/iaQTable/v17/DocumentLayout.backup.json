@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|solutionrelative:iaqtable\\sigma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|c:\\users\\ludov\\documents\\github\\sigmaia\\iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|solutionrelative:iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|c:\\users\\ludov\\documents\\github\\sigmaia\\iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|solutionrelative:iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|c:\\users\\ludov\\documents\\github\\sigmaia\\iaqtable\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|solutionrelative:iaqtable\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|solutionrelative:iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "iaQTable\\sigma.cs",
               "ToolTip": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\sigma.cs",
               "RelativeToolTip": "iaQTable\\sigma.cs",
-              "ViewState": "AgIAAMEAAAAAAAAAAAAkwNMAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAABoBAAAAAAAAAAAuwDkBAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T22:53:20.546Z",
               "IsPinned": true,
@@ -40,13 +40,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\Form1.cs",
               "RelativeDocumentMoniker": "iaQTable\\Form1.cs",
               "ToolTip": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\Form1.cs",
               "RelativeToolTip": "iaQTable\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T14:47:33.157Z",
               "IsPinned": true,
@@ -54,16 +54,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\Program.cs",
-              "RelativeDocumentMoniker": "iaQTable\\Program.cs",
-              "ToolTip": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\Program.cs",
-              "RelativeToolTip": "iaQTable\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\Form1.cs",
+              "RelativeDocumentMoniker": "iaQTable\\Form1.cs",
+              "ToolTip": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\Form1.cs [Design]",
+              "RelativeToolTip": "iaQTable\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T17:15:46.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-15T19:11:53.375Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
