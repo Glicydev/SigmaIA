@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.target = new System.Windows.Forms.Panel();
             this.lblPoints = new System.Windows.Forms.Label();
             this.sigmaImg = new System.Windows.Forms.PictureBox();
+            this.sigmaTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sigmaImg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +65,11 @@
             this.sigmaImg.TabIndex = 4;
             this.sigmaImg.TabStop = false;
             // 
+            // sigmaTimer
+            // 
+            this.sigmaTimer.Interval = 1;
+            this.sigmaTimer.Tick += new System.EventHandler(this.sigmaTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -83,6 +90,7 @@
         private System.Windows.Forms.Panel target;
         private System.Windows.Forms.Label lblPoints;
         private System.Windows.Forms.PictureBox sigmaImg;
+        private System.Windows.Forms.Timer sigmaTimer;
     }
 }
 

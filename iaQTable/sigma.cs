@@ -21,27 +21,28 @@ namespace iaQTable
         private PictureBox _sigmaImg;
         private Label _lblPoints;
 
-        private int _sigmaSize;
-        private int _mapSize;
-        private int _tableSize;
-        private int _nbGames;
-        private double _learningRate;
-        private double _discount;
-        private double _exploration;
-        private int _nbMoves;
-        private int _delay;
-        private int _x, _y;
+        private int _sigmaSize = 0;
+        private int _mapSize = 0;
+        private int _tableSize = 0;
+        private int _nbGames = 0;
+        private double _learningRate = 0.0;
+        private double _discount = 0.0;
+        private double _exploration = 0.0;
+        private int _nbMoves = 0;
+        private int _delay = 0;
+        private int _x, _y = 0;
 
-        // Predefined variables
+        // Variables not used in constructor
         private string[] _moves = { "up", "down", "left", "right" };
-        private int _stepsToMove = 10;
-        private int _episode = 0;
-        private int positiveReward = 100;
-        private int negativeeReward = -1;
-        private ConsoleColor winColor = ConsoleColor.Green;
-        private ConsoleColor looseColor = ConsoleColor.Red;
-        private ConsoleColor normalColor = Console.ForegroundColor;
         private List<string> _possibleMoves = new List<string>();
+        private int _episode = 0;
+        private int _time = 0;
+        private const int _stepsToMove = 10;
+        private const int positiveReward = 10;
+        private const int negativeReward = -1;
+        private const ConsoleColor winColor = ConsoleColor.Green;
+        private const ConsoleColor looseColor = ConsoleColor.Red;
+        private ConsoleColor normalColor = Console.ForegroundColor;
 
         /// <summary>
         /// Constructor of Sigma IA
@@ -68,8 +69,10 @@ namespace iaQTable
             _delay = delay;
             _nbGames = nbGames;
             _sigmaSize = sigmaImg.Width;
-            _x = _mapSize / 2;
-            _y = _mapSize / 2;
+
+            // Initialise somewhere it will touch the target, so in the first placing it will be random and not this value
+            _x = _target.Location.X;
+            _y = _target.Location.Y;
 
 
             _sigmaImg.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(_sigmaImg, true, null);
@@ -99,8 +102,9 @@ namespace iaQTable
         {
             if (winned)
             {
+                double seconds = TimeSpan.FromMilliseconds(_time).TotalSeconds * 10;
                 Console.ForegroundColor = winColor;
-                Console.WriteLine("Sigma won");
+                Console.WriteLine("Sigma won in " + seconds + "s");
             }
             else
             {
@@ -110,6 +114,7 @@ namespace iaQTable
 
             placeSigma();
             Console.ForegroundColor = normalColor;
+            _time = 0;
         }
 
         /// <summary>
@@ -124,9 +129,9 @@ namespace iaQTable
 
             int max = _mapSize - _sigmaSize;
 
-            while (_x < 0 || _x % _stepsToMove != 0 || SigmaTouchTarget(_x, _y))
+            while (_x < 0 || _x % _stepsToMove != 0 || (_x >= _target.Location.X - _sigmaSize && _x < _target.Location.X + _target.Width))
                 _x = rnd.Next(0, max);
-            while (_y < 0 || _y % _stepsToMove != 0 || SigmaTouchTarget(_x, _y))
+            while (_y < 0 || _y % _stepsToMove != 0 || (_y >= _target.Location.Y - _sigmaSize && _y < _target.Location.Y + _target.Width))
                 _y = rnd.Next(0, max);
 
             _sigmaImg.Location = new System.Drawing.Point(_x, _y);
@@ -173,7 +178,7 @@ namespace iaQTable
         /// <returns></returns>
         private int getPoints(int x, int y)
         {
-            int points = negativeeReward;
+            int points = negativeReward;
 
             if (SigmaTouchTarget(x, y))
             {
@@ -250,6 +255,7 @@ namespace iaQTable
                 explorate = true;
                 Console.WriteLine("Key not found");
             }
+
             bool conditionUp = _y >= _stepsToMove;
             bool conditionDown = _y <= _mapSize - _stepsToMove - _sigmaSize * 2;
             bool conditionLeft = _x >= _stepsToMove;
@@ -330,8 +336,18 @@ namespace iaQTable
             for (_episode = 0; _episode < _nbGames; _episode++)
             {
                 _exploration = Math.Max(0.1, 1.0 - (double)_episode / _nbGames);
+                Console.WriteLine("\nExploration: " + _exploration + "\n");
+
                 await SimulateGame();
             }
+        }
+
+        /// <summary>
+        /// Add time in this sigma
+        /// </summary>
+        public void AddTime()
+        {
+            _time++;
         }
     }
 }
