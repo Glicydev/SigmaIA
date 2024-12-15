@@ -25,7 +25,7 @@ namespace iaQTable
 
         private void sigmaTimer_Tick(object sender, EventArgs e)
         {
-            sigma.AddTime();
+            sigma.Time++;
         }
     }
 }

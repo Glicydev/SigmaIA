@@ -95,6 +95,15 @@ namespace iaQTable
         }
 
         /// <summary>
+        /// Get set of the sigma's time
+        /// </summary>
+        public int Time
+        {
+            get { return _time; }
+            set { _time = value; }
+        }
+
+        /// <summary>
         /// Set the end of the run
         /// </summary>
         /// <param name="winned">If Sigma won or not</param>
@@ -340,14 +349,6 @@ namespace iaQTable
 
                 await SimulateGame();
             }
-        }
-
-        /// <summary>
-        /// Add time in this sigma
-        /// </summary>
-        public void AddTime()
-        {
-            _time++;
         }
     }
 }

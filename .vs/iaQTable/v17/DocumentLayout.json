@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|solutionrelative:iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|c:\\users\\ludov\\documents\\github\\sigmaia\\iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|solutionrelative:iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|c:\\users\\ludov\\documents\\github\\sigmaia\\iaqtable\\sigma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|solutionrelative:iaqtable\\sigma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|c:\\users\\ludov\\documents\\github\\sigmaia\\iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CAA3D142-1C15-46CC-A6D6-46FAD33AD90F}|iaQTable\\iaQTable.csproj|solutionrelative:iaqtable\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,13 +26,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "sigma.cs",
               "DocumentMoniker": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\sigma.cs",
               "RelativeDocumentMoniker": "iaQTable\\sigma.cs",
               "ToolTip": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\sigma.cs",
               "RelativeToolTip": "iaQTable\\sigma.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACcAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAgwGEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T22:53:20.546Z",
               "IsPinned": true,
@@ -46,7 +46,7 @@
               "RelativeDocumentMoniker": "iaQTable\\Form1.cs",
               "ToolTip": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\Form1.cs",
               "RelativeToolTip": "iaQTable\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIAwwBMAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIAwwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T14:47:33.157Z",
               "IsPinned": true,
@@ -54,7 +54,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ludov\\Documents\\GitHub\\SigmaIA\\iaQTable\\Form1.cs",
               "RelativeDocumentMoniker": "iaQTable\\Form1.cs",
