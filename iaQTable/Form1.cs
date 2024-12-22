@@ -10,8 +10,8 @@ namespace iaQTable
         List<Sigma> sigmas = new List<Sigma>();
         int stepsToMove = 10;
         int mapSize = 600;
-        int nbMoves = 500;
-        int nbGames = 100;
+        int nbMoves = 200;
+        int nbGames = 10;
         int delay = 1;
         double learningRate = 0.25;
         int discount = 1;

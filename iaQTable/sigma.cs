@@ -266,9 +266,9 @@ namespace iaQTable
             }
 
             bool conditionUp = _y >= _stepsToMove;
-            bool conditionDown = _y <= _mapSize - _stepsToMove - _sigmaSize * 2;
+            bool conditionDown = _y <= _mapSize - _stepsToMove - _sigmaSize;
             bool conditionLeft = _x >= _stepsToMove;
-            bool conditionRight = _x <= _mapSize - _stepsToMove - _sigmaSize * 2;
+            bool conditionRight = _x <= _mapSize - _stepsToMove - _sigmaSize;
 
             bool canGoUp = action == "up" && conditionUp;
             bool canGoDown = action == "down" && conditionDown;
