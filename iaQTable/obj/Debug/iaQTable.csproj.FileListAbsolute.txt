@@ -1,13 +1,3 @@
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\bin\Debug\iaQTable.exe.config
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\bin\Debug\iaQTable.exe
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\bin\Debug\iaQTable.pdb
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\obj\Debug\iaQTable.csproj.AssemblyReference.cache
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\obj\Debug\iaQTable.Form1.resources
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\obj\Debug\iaQTable.Properties.Resources.resources
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\obj\Debug\iaQTable.csproj.GenerateResource.cache
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\obj\Debug\iaQTable.csproj.CoreCompileInputs.cache
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\obj\Debug\iaQTable.exe
-C:\Users\ludov\OneDrive\Bureau\SigmaIA\SigmaIA\iaQTable\obj\Debug\iaQTable.pdb
 C:\Users\ludov\Documents\GitHub\SigmaIA\iaQTable\bin\Debug\iaQTable.exe.config
 C:\Users\ludov\Documents\GitHub\SigmaIA\iaQTable\bin\Debug\iaQTable.exe
 C:\Users\ludov\Documents\GitHub\SigmaIA\iaQTable\bin\Debug\iaQTable.pdb

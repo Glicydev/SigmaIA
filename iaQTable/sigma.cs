@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,12 +19,12 @@ namespace iaQTable
         private Random rnd = new Random();
         private Dictionary<(int, int), Dictionary<string, double>> _qTable = new Dictionary<(int, int), Dictionary<string, double>>();
         private Panel _target;
-        private PictureBox _sigmaImg;
+        private Panel _sigmaImg;
         private Label _lblPoints;
+        private Timer _timer = null;
 
         private int _sigmaSize = 0;
         private int _mapSize = 0;
-        private int _tableSize = 0;
         private int _nbGames = 0;
         private double _learningRate = 0.0;
         private double _discount = 0.0;
@@ -31,6 +32,7 @@ namespace iaQTable
         private int _nbMoves = 0;
         private int _delay = 0;
         private int _x, _y = 0;
+        Form1 _form = null;
 
         // Variables not used in constructor
         private string[] _moves = { "up", "down", "left", "right" };
@@ -56,19 +58,19 @@ namespace iaQTable
         /// <param name="target">The target element</param>
         /// <param name="sigmaImg">The Sigma IA element</param>
         /// <param name="lblPoints">The label with the points</param>
-        public Sigma(int mapSize, double learningRate, double discount, int nbMoves, int delay, int nbGames, Panel target, PictureBox sigmaImg, Label lblPoints)
+        public Sigma(int mapSize, double learningRate, double discount, int nbMoves, int delay, int nbGames, Panel target, int sigmaSize, Label lblPoints, ref Dictionary<(int, int), Dictionary<string, double>> qtable, Form1 form)
         {
             _mapSize = mapSize;
-            _tableSize = mapSize / _stepsToMove;
             _learningRate = learningRate;
             _discount = discount;
             _target = target;
-            _sigmaImg = sigmaImg;
             _lblPoints = lblPoints;
             _nbMoves = nbMoves;
             _delay = delay;
             _nbGames = nbGames;
-            _sigmaSize = sigmaImg.Width;
+            _sigmaSize = sigmaSize;
+            _form = form;
+            _sigmaImg = createSigmaImg();
 
             // Initialise somewhere it will touch the target, so in the first placing it will be random and not this value
             _x = _target.Location.X;
@@ -78,20 +80,18 @@ namespace iaQTable
             _sigmaImg.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(_sigmaImg, true, null);
 
 
-            // Fill the QTable with 0 values
-            for (int x = 0; x <= _tableSize; x++)
-            {
-                for (int y = 0; y <= _tableSize; y++)
-                {
-                    // Put 0 points foreach action in the coordinate
-                    _qTable.Add((x * _stepsToMove, y * _stepsToMove), new Dictionary<string, double>{
-                        { "up", 0.0 },
-                        { "down", 0.0 },
-                        { "left", 0.0 },
-                        { "right", 0.0 }
-                    });
-                }
-            }
+            _qTable = qtable;
+        }
+
+        private Panel createSigmaImg()
+        {
+            Panel sigmaImg = new Panel();
+            sigmaImg.Size = new Size(_sigmaSize, _sigmaSize);
+            sigmaImg.BackgroundImage = Properties.Resources.spongebob_spongebob_meme;
+            sigmaImg.BackgroundImageLayout = ImageLayout.Stretch;
+            _form.Controls.Add(sigmaImg);
+
+            return sigmaImg;
         }
 
         /// <summary>
