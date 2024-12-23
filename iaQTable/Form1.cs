@@ -8,10 +8,10 @@ namespace iaQTable
     {
         Dictionary<(int, int), Dictionary<string, double>> qTable = new Dictionary<(int, int), Dictionary<string, double>>();
         List<Sigma> sigmas = new List<Sigma>();
-        int stepsToMove = 10;
+        int stepsToMove = 20;
         int mapSize = 600;
         int nbMoves = 200;
-        int nbGames = 10;
+        int nbGames = 50;
         int delay = 1;
         double learningRate = 0.25;
         int discount = 1;

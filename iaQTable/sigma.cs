@@ -161,6 +161,8 @@ namespace iaQTable
             int nextX = 0;
             int nextY = 0;
             string move = string.Empty;
+            double nextMax = 0;
+            double actualPoints = 0;
 
             // Do for each moves
             for (int i = 0; i < 4; i++)
@@ -171,8 +173,8 @@ namespace iaQTable
 
                 if (isDataInTable(nextX) && isDataInTable(nextY))
                 {
-                    double nextMax = _qTable[(nextX, nextY)].Values.Max();
-                    double actualPoints = _qTable[(_x, _y)][move];
+                    nextMax = _qTable[(nextX, nextY)].Values.Max();
+                    actualPoints = _qTable[(_x, _y)][move];
 
                     // Bellman equation
                     _qTable[(_x, _y)][move] = actualPoints + _learningRate * (getPoints(nextX, nextY) + _discount * nextMax - actualPoints);
