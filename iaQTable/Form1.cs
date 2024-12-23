@@ -15,7 +15,7 @@ namespace iaQTable
         int delay = 1;
         double learningRate = 0.25;
         int discount = 1;
-        int nbSigmas = 25;
+        int nbSigmas = 20;
         int tableSize = 0;
 
         public Form1()
@@ -66,7 +66,7 @@ namespace iaQTable
 
         private void generateSigma()
         {
-            sigmas.Add(new Sigma(mapSize, learningRate, discount, nbMoves, delay, nbGames, target, 80, lblPoints, ref qTable, this));
+            sigmas.Add(new Sigma(mapSize, learningRate, discount, nbMoves, delay, nbGames, target, 80, lblPoints, ref qTable, this, stepsToMove));
         }
 
         private void sigmaTimer_Tick(object sender, EventArgs e)

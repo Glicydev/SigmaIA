@@ -8,3 +8,5 @@ C:\Users\ludov\Documents\GitHub\SigmaIA\iaQTable\obj\Debug\iaQTable.csproj.Gener
 C:\Users\ludov\Documents\GitHub\SigmaIA\iaQTable\obj\Debug\iaQTable.csproj.CoreCompileInputs.cache
 C:\Users\ludov\Documents\GitHub\SigmaIA\iaQTable\obj\Debug\iaQTable.exe
 C:\Users\ludov\Documents\GitHub\SigmaIA\iaQTable\obj\Debug\iaQTable.pdb
+C:\Users\ludov\Documents\GitHub\SigmaIA\iaQTable\bin\Debug\CopilotDev.NET.Api.dll
+C:\Users\ludov\Documents\GitHub\SigmaIA\iaQTable\obj\Debug\iaQTable.csproj.Up2Date

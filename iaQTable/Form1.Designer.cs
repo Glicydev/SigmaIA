@@ -37,9 +37,9 @@
             // target
             // 
             this.target.BackColor = System.Drawing.Color.Lime;
-            this.target.Location = new System.Drawing.Point(235, 235);
+            this.target.Location = new System.Drawing.Point(193, 181);
             this.target.Name = "target";
-            this.target.Size = new System.Drawing.Size(130, 130);
+            this.target.Size = new System.Drawing.Size(180, 180);
             this.target.TabIndex = 2;
             // 
             // lblPoints

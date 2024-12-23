@@ -21,7 +21,7 @@ namespace iaQTable
         private Panel _target;
         private Panel _sigmaImg;
         private Label _lblPoints;
-        private Timer _timer = null;
+        Form1 _form = null;
 
         private int _sigmaSize = 0;
         private int _mapSize = 0;
@@ -32,14 +32,13 @@ namespace iaQTable
         private int _nbMoves = 0;
         private int _delay = 0;
         private int _x, _y = 0;
-        Form1 _form = null;
+        private int _stepsToMove = 0;
 
         // Variables not used in constructor
         private string[] _moves = { "up", "down", "left", "right" };
         private List<string> _possibleMoves = new List<string>();
         private int _episode = 0;
         private int _time = 0;
-        private const int _stepsToMove = 10;
         private const int positiveReward = 10;
         private const int negativeReward = -1;
         private const ConsoleColor winColor = ConsoleColor.Green;
@@ -58,7 +57,7 @@ namespace iaQTable
         /// <param name="target">The target element</param>
         /// <param name="sigmaImg">The Sigma IA element</param>
         /// <param name="lblPoints">The label with the points</param>
-        public Sigma(int mapSize, double learningRate, double discount, int nbMoves, int delay, int nbGames, Panel target, int sigmaSize, Label lblPoints, ref Dictionary<(int, int), Dictionary<string, double>> qtable, Form1 form)
+        public Sigma(int mapSize, double learningRate, double discount, int nbMoves, int delay, int nbGames, Panel target, int sigmaSize, Label lblPoints, ref Dictionary<(int, int), Dictionary<string, double>> qtable, Form1 form, int stepsToMove)
         {
             _mapSize = mapSize;
             _learningRate = learningRate;
@@ -70,6 +69,7 @@ namespace iaQTable
             _nbGames = nbGames;
             _sigmaSize = sigmaSize;
             _form = form;
+            _stepsToMove = stepsToMove;
             _sigmaImg = createSigmaImg();
 
             // Initialise somewhere it will touch the target, so in the first placing it will be random and not this value
@@ -81,6 +81,11 @@ namespace iaQTable
 
 
             _qTable = qtable;
+        }
+
+        private bool isDataInTable(int data)
+        {
+            return data >= 0 && data <= _mapSize;
         }
 
         private Panel createSigmaImg()
@@ -155,15 +160,16 @@ namespace iaQTable
             // Initialisation
             int nextX = 0;
             int nextY = 0;
+            string move = string.Empty;
 
             // Do for each moves
             for (int i = 0; i < 4; i++)
             {
-                string move = _moves[i];
-                nextX = move == "left" && _x > 0 ? _x - _stepsToMove : (move == "right" && _x < _mapSize - _sigmaSize ? _x + _stepsToMove : _x);
-                nextY = move == "down" && _y > 0 ? _y - _stepsToMove : (move == "up" && _y < _mapSize - _sigmaSize ? _y + _stepsToMove : _y);
+                move = _moves[i];
+                nextX = move == "left" && _x >= _stepsToMove ? _x - _stepsToMove : (move == "right" && _x < _mapSize - _sigmaSize ? _x - _stepsToMove : _x);
+                nextY = move == "up" && _y >= _stepsToMove ? _y - _stepsToMove : (move == "down" && _y < _mapSize - _sigmaSize ? _y - _stepsToMove : _y);
 
-                if (nextX >= 0 && nextX <= 600 && nextY >= 0 && nextY <= 600 && _x >= 0 && _x <= 600 && _y >= 0 && _y <= 600)
+                if (isDataInTable(nextX) && isDataInTable(nextY))
                 {
                     double nextMax = _qTable[(nextX, nextY)].Values.Max();
                     double actualPoints = _qTable[(_x, _y)][move];
@@ -176,7 +182,10 @@ namespace iaQTable
 
         private bool SigmaTouchTarget(int x, int y)
         {
-            return x >= _target.Location.X - _sigmaSize && x < _target.Location.X + _target.Width && y > _target.Location.Y - _sigmaSize && y < _target.Location.Y + _target.Height;
+            Rectangle targetBounds = _target.Bounds;
+            Rectangle sigmaBounds = _sigmaImg.Bounds;
+
+            return sigmaBounds.IntersectsWith(targetBounds);
         }
 
         /// <summary>
@@ -217,16 +226,22 @@ namespace iaQTable
         private void Move(string action, int x, int y)
         {
             if (action == "up")
-                _sigmaImg.Location = new System.Drawing.Point(x, y - _stepsToMove);
+                y -= _stepsToMove;
 
             else if (action == "down")
-                _sigmaImg.Location = new System.Drawing.Point(x, y + _stepsToMove);
+                y += _stepsToMove;
 
             else if (action == "left")
-                _sigmaImg.Location = new System.Drawing.Point(x - _stepsToMove, y);
+                x -= _stepsToMove;
 
             else if (action == "right")
-                _sigmaImg.Location = new System.Drawing.Point(x + _stepsToMove, y);
+                x += _stepsToMove;
+
+            _x = x;
+            _y = y;
+
+            _sigmaImg.Location = new System.Drawing.Point(x + _stepsToMove, y);
+
         }
 
         /// <summary>
@@ -248,7 +263,7 @@ namespace iaQTable
             double max = 0;
             List<string> elementsThatHaveMax = new List<string>();
 
-            try
+            if (isDataInTable(_x) && isDataInTable(_y))
             {
                 max = _qTable[(_x, _y)].Values.Max();
                 action = _qTable[(_x, _y)].FirstOrDefault(act => act.Value == max).Key;
@@ -258,11 +273,6 @@ namespace iaQTable
                 elementsThatHaveMax = _qTable[(_x, _y)].Where(kv => kv.Value == max)
                     .Select(kv => kv.Key)
                     .ToList();
-            }
-            catch (Exception ex)
-            {
-                explorate = true;
-                Console.WriteLine("Key not found");
             }
 
             bool conditionUp = _y >= _stepsToMove;
@@ -318,9 +328,6 @@ namespace iaQTable
         {
             for (int i = 0; i < _nbMoves; i++)
             {
-                _x = _sigmaImg.Location.X;
-                _y = _sigmaImg.Location.Y;
-
                 PlayOneMove();
 
                 if (CheckWin(_x, _y))
