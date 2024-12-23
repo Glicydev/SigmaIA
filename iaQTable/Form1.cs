@@ -11,7 +11,7 @@ namespace iaQTable
         int stepsToMove = 20;
         int mapSize = 600;
         int nbMoves = 200;
-        int nbGames = 50;
+        int nbGames = 5;
         int delay = 1;
         double learningRate = 0.25;
         int discount = 1;
@@ -48,25 +48,26 @@ namespace iaQTable
             }
         }
 
-        private void makeSigmasPlay()
+        private bool makeSigmasPlay()
         {
             foreach (Sigma sigma in sigmas)
             {
                 sigma.Simulate();
             }
+            return true;
         }
 
         private void generateAllSigmas()
         {
             for(int i = 0; i < nbSigmas; i++)
             {
-                generateSigma();
+                sigmas.Add(generateSigma());
             }
         }
 
-        private void generateSigma()
+        private Sigma generateSigma()
         {
-            sigmas.Add(new Sigma(mapSize, learningRate, discount, nbMoves, delay, nbGames, target, 80, lblPoints, ref qTable, this, stepsToMove));
+            return new Sigma(mapSize, learningRate, discount, nbMoves, delay, nbGames, target, 80, lblPoints, ref qTable, this, stepsToMove, ref sigmas);
         }
 
         private void sigmaTimer_Tick(object sender, EventArgs e)

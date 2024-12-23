@@ -21,7 +21,8 @@ namespace iaQTable
         private Panel _target;
         private Panel _sigmaImg;
         private Label _lblPoints;
-        Form1 _form = null;
+        private List<Sigma> _sigmas = null;
+        private Form1 _form = null;
 
         private int _sigmaSize = 0;
         private int _mapSize = 0;
@@ -57,7 +58,7 @@ namespace iaQTable
         /// <param name="target">The target element</param>
         /// <param name="sigmaImg">The Sigma IA element</param>
         /// <param name="lblPoints">The label with the points</param>
-        public Sigma(int mapSize, double learningRate, double discount, int nbMoves, int delay, int nbGames, Panel target, int sigmaSize, Label lblPoints, ref Dictionary<(int, int), Dictionary<string, double>> qtable, Form1 form, int stepsToMove)
+        public Sigma(int mapSize, double learningRate, double discount, int nbMoves, int delay, int nbGames, Panel target, int sigmaSize, Label lblPoints, ref Dictionary<(int, int), Dictionary<string, double>> qtable, Form1 form, int stepsToMove, ref List<Sigma> sigmas)
         {
             _mapSize = mapSize;
             _learningRate = learningRate;
@@ -70,6 +71,7 @@ namespace iaQTable
             _sigmaSize = sigmaSize;
             _form = form;
             _stepsToMove = stepsToMove;
+            _sigmas = sigmas;
             _sigmaImg = createSigmaImg();
 
             // Initialise somewhere it will touch the target, so in the first placing it will be random and not this value
@@ -360,6 +362,7 @@ namespace iaQTable
             }
 
             _sigmaImg.Dispose();
+            _sigmas.Remove(this);
         }
     }
 }
