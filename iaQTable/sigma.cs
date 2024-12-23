@@ -358,6 +358,8 @@ namespace iaQTable
 
                 await SimulateGame();
             }
+
+            _sigmaImg.Dispose();
         }
     }
 }
